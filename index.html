@@ -155,17 +155,17 @@
               <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content" data-aos="fade-right" data-aos-delay="100">
                 <h3>Django Workflow</h3>
                 <p class="fst-italic">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                  magna aliqua.
+                  We have developed a web application for our recommender system using the Django Framework with Python, and DynamoDB for the database. 
+                  The landing page of our web application prompts users to log in and offers a sign-up function for new users.
                 </p>
                 <ul>
-                  <li><i class="ri-check-double-line"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-                  <li><i class="ri-check-double-line"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
-                  <li><i class="ri-check-double-line"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.</li>
+                  <li><i class="ri-check-double-line"></i> Data from user sign-up is kept in postgresql for authentication activities </li>
+                  <li><i class="ri-check-double-line"></i> To address the cold start problem, we provide users with a selection of curated meme tags upon sign-up. </li>
+                  <li><i class="ri-check-double-line"></i> Our recommendation algorithm runs in the backend and curates the content on the homepage based on the selected tags. This approach helps users receive personalized recommendations, even if they have no previous search history.</li>
+                  <li><i class="ri-check-double-line"></i> User embeddings are updated based on the implicit user input such as likes and clicks. Using the updated embeddings our web application pulls new feed data from DynamoDB.</li>
                 </ul>
                 <p>
-                  Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-                  velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident
+                  The web application is designed and developed in line with user's preferences which is updated periodically using user interactions. It is designed to incorporate minimum user intervention while ensuring maximum user satisfaction.
                 </p>
               </div>
             </div>
