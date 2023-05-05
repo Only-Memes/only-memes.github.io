@@ -125,12 +125,39 @@
           <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content" data-aos="fade-right" data-aos-delay="100">
             <h3>Project Architecture</h3>
             <p class="fst-italic">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-              magna aliqua.
+              we have used Django framework to build the OnlyMemes website. The important components interacting with app include dynamodb, sqlitedb and Redis cache.
+              Our Recommendation algorithm is integrated with Django app and runs as a server side function.
             </p>
             <ul>
-              <li><i class="ri-check-double-line"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-              <li><i class="ri-check-double-line"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
+              <li><i class="ri-check-double-line"></i> The Django app contains .</li>
+              <li><i class="ri-check-double-line"></i> Sqlitedb is used for user registraion and authenication. This database would be accessed only at the login and registration pages</li>
+              <li><i class="ri-check-double-line"></i> Dynamo db contains the data and tables necessary for running the webapp and the recommendation algorithm
+              <p>we have three important tables for our application.</p>
+              <p>1) memes_metadata</p>
+                <p>The memes metadata table contains the information related to the data extracted from instagram. This table would be used by the recommendation algorithm for computing similarity scores and final rank
+                  It includes the following attributes</p>
+                  <li>owner+filename - primary key</li>
+                  <li>caption</li>
+                  <li>no. of likes</li>
+                  <li>no. of comments</li>
+                  <li>hashtags</li>
+                  <li>no. of followers of the page</li>
+                  <li>timestamp</li>
+              <p>2) meme_embeddings</p>
+                <p>Our recommendation alogrithm runs based on the similarity of the hashtags. The hastags of the memes are fixed</p>
+                <p>So, we are precomputing the bert and doc embedding and storing in the dynamo db. The recommendation algorithm would pull these embeddings from the dynamo db for ranking the memes.</p>
+                <p> Following are the attributes of the table</p>
+                 <li>owner+filename - primary key</li>
+                 <li>doc embedding (word2vec weighted average)</li>
+                 <li>bert embedding</li>
+              <p>3) users table</p>
+              The users table is used both by the webapp and the recommendation algorithm
+              It contains the following attributes 
+              <li>user-id - primary key</li>
+              <li>feed - user feed to be displayed on the app</li>
+              <li>liked_images - images liked by the user (contains owner+filename as value)</li>
+              <li>visited_images - images that the user has already seen on the feed</li>
+              <p></p>
               <li><i class="ri-check-double-line"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.</li>
             </ul>
             <p>
