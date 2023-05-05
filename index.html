@@ -91,10 +91,10 @@
       <div class="body_text" >
         <h3>Motivation</h3>
         <p> “Sharing relevant memes is an Art, and getting quality content is a Bliss” </p>
-        <p> There are existing platforms like Instagram, Facebook (especially groups), Twitter and reddit which provide users with memes as well as other content. But there are disadvantages of these platforms for consuming memes. Most people turn to these platforms just to get view some quality meme content to get break from work.</p>
+        <p> There are existing platforms like Instagram, Facebook (especially groups), Twitter, and Reddit which provide users with memes as well as other content. But there are disadvantages of these platforms for consuming memes. Most people turn to these platforms just to get view some quality meme content to get a break from work.</p>
         <ul>
-          <li>Get distracting Advertisements that somewhat spoils the meme experience</li>
-          <li>Often we run into irrelevant posts or memes as these platforms recommened based on interactions with all types of content and not just based on liked memes</li>
+          <li>Get distracting Advertisements that somewhat spoil the meme experience</li>
+          <li>Often we run into irrelevant posts or memes as these platforms recommend based on interactions with all types of content and not just based on liked memes</li>
           <li>Twitter is not a safe place unlike CSCE 670 Slack random channel and we often run into heated debates and comments rather than memes</li>
         </ul>
 
@@ -189,15 +189,15 @@
             <h3>Recommendation Engine</h3>
             <p >
               <h5>Generating Meme/User Embedding</h5>
-              <p> To recommend memes to users based on their intrest and interaction with the feed, we use a content based recommendation system. We tried extracting the meme text from using OCR but with our dataset consisting of a mix of images and videos, the quality of extracted meme text data was not sufficient to train our recommendation model. Thus we used the hashtags of the memes for generation embeddings for all the memes. To generate embeddings we used two methods as given below:</p>
+              <p> To recommend memes to users based on their interest and interaction with the feed, we use a content-based recommendation system. We tried extracting the meme text from using OCR but with our dataset consisting of a mix of images and videos, the quality of extracted meme text data was not sufficient to train our recommendation model. Thus we used the hashtags of the memes for generation embeddings for all the memes. To generate embeddings we used two methods as given below:</p>
               <ul>
-                <li><i class="ri-check-double-line"></i> <b>Word2vec : </b> Word2vec is a popular natural language processing technique used for generating word embeddings, which are numerical representations of words in a high-dimensional space. The goal of word2vec is to capture the semantic meaning of words by training a neural network on a large corpus of text. In this project we used Google News 300 Word2vec pretrained model to create word2vec higher dimensional representation. By using word2vec to generate embeddings for hashtags associated with memes, we can capture the semantic meaning of the hashtags and use them to create more accurate and effective representations of the memes.</li>
-                <li><i class="ri-check-double-line"></i> <b>BERT</b> Bidirectional Encoder Representations from Transformers, is a deep learning model that uses a combination of unsupervised and supervised learning to generate contextualized word embeddings. It uses a transformer architecture, which is a type of neural network that can process entire sequences of data at once, to encode the context of each word in a sentence. We used pretrained BERT on meme tags and user query to generate BERT based dense embeddings. BERT is capable of capturing the relationships between words in a given sentence, which can be useful for generating embeddings that represent the overall meaning of a meme based on its associated hashtags and also can handle out-of-vocabulary words, which can be common in memes that often use non-standard or invented words or phrases.</li>
+                <li><i class="ri-check-double-line"></i> <b>Word2vec: </b> Word2vec is a popular natural language processing technique used for generating word embeddings, which are numerical representations of words in a high-dimensional space. The goal of word2vec is to capture the semantic meaning of words by training a neural network on a large corpus of text. In this project, we used Google News 300 Word2vec pre-trained model to create a word2vec higher dimensional representation. By using word2vec to generate embeddings for hashtags associated with memes, we can capture the semantic meaning of the hashtags and use them to create more accurate and effective representations of the memes.</li>
+                <li><i class="ri-check-double-line"></i> <b>BERT</b> Bidirectional Encoder Representations from Transformers is a deep learning model that uses a combination of unsupervised and supervised learning to generate contextualized word embeddings. It uses a transformer architecture, which is a type of neural network that can process entire sequences of data at once, to encode the context of each word in a sentence. We used pre-trained BERT on meme tags and user queries to generate BERT-based dense embeddings. BERT is capable of capturing the relationships between words in a given sentence, which can be useful for generating embeddings that represent the overall meaning of a meme based on its associated hashtags and also can handle out-of-vocabulary words, which can be common in memes that often use non-standard or invented words or phrases.</li>
               </ul>
             </p>
             <p>
               <h5>Soft Cosine Similarity</h5>
-              Soft cosine similarity is a measure of similarity between two text documents or vectors that takes into account the semantic similarity between their constituent words or features. Unlike traditional cosine similarity, which only measures the cosine of the angle between two vectors in a high-dimensional space, soft cosine similarity also considers the relationships between the words or features in the two vectors.
+              Soft cosine similarity is a measure of similarity between two text documents or vectors that take into account the semantic similarity between their constituent words or features. Unlike traditional cosine similarity, which only measures the cosine of the angle between two vectors in a high-dimensional space, soft cosine similarity also considers the relationships between the words or features in the two vectors. Given below are the advantages of using soft cosine similarity:
               <ul>
                 <li><i class="ri-check-double-line"></i>Takes into account the semantic similarity between the dimensions of the vectors</li>
                 <li><i class="ri-check-double-line"></i>Can compare vectors of different types</li>
@@ -207,24 +207,18 @@
 
             <p >
               <h5>Generating User Queries</h5>
-              To tackle the cold start problem we give user a set of tags or interests to choose from. From these tags the user select his/her favourite tags and based on those we generate the initial embeddings for the user. We then show the user the feed based on the initial user embedding. When user interacts with the memes by liking or sharing we change the user query by adding the tags of theses memes to original chosen tags. Based on the updated user query we generate new embeddings for the user and get updated feed of memes ranked based on crietria given below.
-              <!-- <ul>
-                <li><i class="ri-check-double-line"></i> User query initially generated from chosen tags</li>
-                <li><i class="ri-check-double-line"></i> User query updated by using the liked_memes/share_memes interactions from user</li>
-                <li><i class="ri-check-double-line"></i> Generate feed on updated user query</li>
-                
-              </ul> -->
+              To tackle the cold start problem we give users a set of tags or interests to choose from. From these tags, the user selects his/her favorite tags, and based on those we generate the initial embeddings for the user. We then show the user the feed based on the initial user embedding. When the user interacts with the memes by liking or sharing we change the user query by adding the tags of these memes to the original chosen tags. Based on the updated user query we generate new embeddings for the user and get an updated feed of memes ranked based on the criteria given below.
             </p>
 
 
             <p >
               <h5>Generating Feed and Ranking Memes</h5>
-              We generte the updated feed based on the user iteraction dynamically. We have a list of memes which the user has already seen and also a list of liked memes. Based on the current user embediing we calculate the similarity with all memes embeddings. Finally we calculate score for each meme based on two factors:
+              We generate the updated feed based on the user interaction dynamically. We have a list of memes that the user has already seen and also a list of liked memes. Based on the current user embedding we calculate the similarity with all memes embeddings. Finally, we calculate the score for each meme based on two factors:
               <ul>
                 <li><i class="ri-check-double-line"></i> Similarity </li>
                 <li><i class="ri-check-double-line"></i> Popularity (Number of Likes and comments)</li>                
               </ul>
-              Finally we inject some random popular memes (unseen by the user) to the top ranked memes and display a shuffled feed of top memes to the user. This avoids the feed to be contricted to few categories which user keeps on liking and allows users to explore different areas.
+              Finally, we inject some random popular memes (unseen by the user) into the top-ranked memes and display a shuffled feed of top memes to the user. This avoids the feed to be restricted to a few categories that the user keeps on liking and allows users to explore different areas.
  
             </p>
           </div>
@@ -268,15 +262,15 @@
               <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content" >
                 <h3>Evaluation</h3>
                 <p>
-                  Evaluation is a crucial part of recommendation system and is required for testing the performance of methods used for recommendation. In our case, we use content based recommendation system for memesa and rank the memes based on similarity between embeddings. While there are other factors like popularity and diversification of feed using random popular memes, we only evaluate the similarity part of our system with a baseline methods as the other parts are independent of the system used and are just to improve upon the recommendations of our main system. 
+                  Evaluation is a crucial part of the recommendation system and is required for testing the performance of methods used for recommendation. In our case, we use a content-based recommendation system for memes and rank the memes based on the similarity between embeddings. While there are other factors like popularity and diversification of feed using random popular memes, we only evaluate the similarity part of our system with the baseline method as the other parts are independent of the system used and are just to improve upon the recommendations of our main system. 
                 </p>
-                <p>We compare our method of using Word2vec (trained on Google News 300) and BERT with soft cosine similarity with a baseline method we implemented in class using Wor2Vec embeddings with cosine similarity. We manually define images that are relevant for each tag and then compare these methods on two meterics Precision@20 and NDCG by using these methods to get top 20 memes for these hashtags.</p>
+                <p>We compare our method of using Word2vec (trained on Google News 300) and BERT with soft cosine similarity with a baseline method we implemented in class using Wor2Vec embeddings with cosine similarity. We manually define images that are relevant for each tag and then compare these methods on two metrics Precision@20 and NDCG by using these methods to get the top 20 memes for these hashtags.</p>
                 <ul>
                   <li><i class="ri-check-double-line"></i> <b>Precision@20 - </b> It measures the proportion of recommended items that are relevant to the user, out of the top 20 recommended items.
                   <br>
                   <p>precision@20 = (# of relevant items in top 20 recommended items) / 20</p> </li>
                     
-                  <li><i class="ri-check-double-line"></i> <b>NDCG </b> NDCG (Normalized Discounted Cumulative Gain) measures the relevance and position of each recommended item, and assigns a score to the list of recommended items based on these factors.  <p>NDCG = DCG / IDCG</p></li>
+                  <li><i class="ri-check-double-line"></i> <b>NDCG </b> NDCG (Normalized Discounted Cumulative Gain) measures the relevance and position of each recommended item and assigns a score to the list of recommended items based on these factors.  <p>NDCG = DCG / IDCG</p></li>
                   
                 </ul>
 
@@ -301,13 +295,13 @@
             <h3>Challenges</h3>
 
             <p class="fst-italic">
-              As we built OnlyMemes there were few challenges that we tackled during this project.
+              As we built OnlyMemes there were a few challenges that we tackled during this project.
             </p>
             <ul>
-              <li><i class="ri-check-double-line"></i> <b>Data Gathering</b> - We build a script to scarpe memes from instagram as dataset for this project but due to APi rate limitation this was a major roadbloack in data gathering process. To tackle this we used some tweaks to gather data by designing continuous scraping process with rate limitation</li>
-              <li><i class="ri-check-double-line"></i> <b> Meme content extraction </b> - As the data extracted was mix of videos and images and the content of images was also not uniform it was a challenge to extract meme text using OCR. We tried all models like teserract, EasyOCR, KerasOCR but the quality of the meme text data extracted was not good or missing for most of the posts. Thus we decide to run our models only on meme tags. </li>
-              <li><i class="ri-check-double-line"></i> <b> Cold Start </b> - To eliminate the cold start problem we implemented the Spotify/Netflix approch to let user choose a set of favourite tags initially. Also the as new memes are added daily this is not a concern in our system as we can create image embedding using tags </li>
-              <li><i class="ri-check-double-line"></i> <b>Design Decisons</b> - There were many design decision for the application like when to update the feed, hwo to update the feed. We used the principles taught in cass like minimizing user traction for using the app and diversification of feed to take these design decisions</li>
+              <li><i class="ri-check-double-line"></i> <b>Data Gathering</b> - We build a script to scrape memes from Instagram as a dataset for this project but due to API rate limitation this was a major roadblock in the data gathering process. To tackle this we used some tweaks to gather data by designing a continuous scraping process with rate limitation</li>
+              <li><i class="ri-check-double-line"></i> <b> Meme content extraction </b> - As the data extracted was a mix of videos and images and the content of images was also not uniform it was a challenge to extract meme text using OCR. We tried all models like Tesseract, EasyOCR, and KerasOCR but the quality of the meme text data extracted was not good or missing for most of the posts. Thus we decide to run our models only on meme tags. </li>
+              <li><i class="ri-check-double-line"></i> <b> Cold Start </b> - To eliminate the cold start problem we implemented the Spotify/Netflix approach to let users choose a set of favorite tags initially. Also as new memes are added daily this is not a concern in our system as we can create image embedding using tags </li>
+              <li><i class="ri-check-double-line"></i> <b>Design Decisions</b> - There were many design decisions for the application like when to update the feed, how to update the feed. We used the principles taught in class like minimizing user traction for using the app and diversification of feed to take these design decisions</li>
             </ul>
 
           </div>
@@ -330,12 +324,12 @@
               <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content" >
                 <h3>Way Forward</h3>
                 <p class="fst-italic">
-                  As the timeline of this project was limited, we can think of few improvements that we can add to our application
+                  As the timeline of this project was limited, we can think of a few improvements that we can add to our application.
                 </p>
                 <ul>
-                  <li><i class="ri-check-double-line"></i> <b>More Data</b> We look forward to use a larger dataset with more quality memes to improve our recommendations</li>
-                  <li><i class="ri-check-double-line"></i> <b>Meme text extraction</b> With large good quality data we can implement OCR for meme text extractiona and use memetext and tags to build meme embeddings</li>
-                  <li><i class="ri-check-double-line"></i> <b>Meme tag generation</b> Sometimes memes are not tagged or captioned properly thus we can extract meme text, meme contant to generate meme tags to include such memes to our system. This would be possible using deep learning models to be trained on meme content to predict the tags.</li>
+                  <li><i class="ri-check-double-line"></i> <b>More Data</b> We look forward to using a larger dataset with more quality memes to improve our recommendations</li>
+                  <li><i class="ri-check-double-line"></i> <b>Meme Text Extraction</b> With large and good-quality data we can implement OCR for meme text extraction and use meme text and tags to build meme embeddings</li>
+                  <li><i class="ri-check-double-line"></i> <b>Meme Tag Generation</b> Sometimes memes are not tagged or captioned properly thus we can extract meme text, and meme content to generate meme tags to include such memes in our system. This would be possible using deep learning models to be trained on meme content to predict the tags.</li>
                 </ul>
 
               </div>
