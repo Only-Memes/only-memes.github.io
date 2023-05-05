@@ -125,24 +125,25 @@
           <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content" data-aos="fade-right" data-aos-delay="100">
             <h3>Project Architecture</h3>
             <p class="fst-italic">
-              we have used Django framework to build the OnlyMemes website. The important components interacting with app include dynamodb, sqlitedb and Redis cache.
+              We have used Django framework to build the OnlyMemes website. The important components interacting with app include DynamoDB, SQLitedb and Redis cache.
               Our Recommendation algorithm is integrated with Django app and runs as a server side function.
             </p>
             <ul>
-              <li><i class="ri-check-double-line">Django</i> The Django app is the platform through which users would view the memes. It is responsible for user registration and authenication. It also renders the users feed and communicates with the dynamo db to update and retrieve the user data</li>
-              when the feed of the user is rendered, there is an AJAX callback from the client to the server which triggers the recommnedation algorithm to produce the next feed for the user.
-              <li><i class="ri-check-double-line">SQLitedb</i> Sqlitedb is used for user registraion and authenication. This database would be accessed only at the login and registration pages</li>
-              <li><i class="ri-check-double-line">Dynamodb</i> Dynamo db contains the data and tables necessary for running the webapp and the recommendation algorithm
+              <li><i class="ri-check-double-line"></i> The <b>Django app</b> is the platform through which users would view the memes. It is responsible for user registration and authenication. It also renders the users feed and communicates with the DynamoDB to update and retrieve the user data.
+              when the feed of the user is rendered, there is an AJAX callback from the client to the server which triggers the recommendation algorithm to produce the next feed for the user.</li>
+              <li><i class="ri-check-double-line"></i> <b>SQLitedb</b> is used for user registraion and authenication. This database would be accessed only at the login and registration pages</li>
+              <li><i class="ri-check-double-line"></i> <b>DynamoDB</b> contains the data and tables necessary for running the webapp and the recommendation algorithm
+              <p></p>
               <p>we have three important tables for our application.</p>
-              <p>1) memes_metadata</p>
+              <p><b>1) memes_metadata </b></p>
                 <p>The memes metadata table contains the information related to the data extracted from instagram. This table would be used by the recommendation algorithm for computing similarity scores and final rank
-              <p>2) meme_embeddings</p>
+              <p><b>2) meme_embeddings </b></p>
                 <p>Our recommendation alogrithm runs based on the similarity of the hashtags. The hastags of the memes are fixed</p>
-                <p>So, we are precomputing the bert and doc embedding and storing in the dynamo db. The recommendation algorithm would pull these embeddings from the dynamo db for ranking the memes.</p>
-              <p>3) users</p>
+                <p>So, we are precomputing the bert and doc embedding and storing in the DynamoDB. The recommendation algorithm would pull these embeddings from the  DynamoDB for ranking the memes.</p>
+              <p><b>3) users</b></p>
                 <p>The users table is used both by the webapp and the recommendation algorithm</p>
-              <img src="assets/img/dynamo.png" alt="A beautiful landscape">
-              <li><i class="ri-check-double-line">Redis</i>Redis is used for cache to store the word2vec embeddings of the hashtags present in the memes_metadata. This component is needed as the word2vec model (goole-news-300) is a 1.5GB bin file and takes more than 90s to load the model. By using redis,the total runtime of the recommendation algorithm got reduced to 18s thus improving the efficiency by 5X.
+                <img src="assets/img/dynamo.png" alt="dynamodb tables" height="300" width="700">
+              <li><i class="ri-check-double-line"></i><b>Redis</b> is used as cache to store the word2vec embeddings of the hashtags present in the memes_metadata. This component is needed as the word2vec model (google-news-300) is a 1.5GB binary file and takes more than 90s to load the model. By using Redis, the total runtime of the recommendation algorithm got reduced to 18s making the recommendation faster by 5X.
               </li>
             </ul>
           </div>
