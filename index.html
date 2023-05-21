@@ -54,9 +54,10 @@
           <li><a class="nav-link scrollto" href="#architecture">Architecture</a></li>
           <li><a class="nav-link scrollto" href="#workflow">Workflow</a></li>
           <li><a class="nav-link scrollto " href="#recommendation">Recommendation</a></li>
+          <li><a class="nav-link scrollto" href="#demo">Demo</a></li>
           <li><a class="nav-link scrollto" href="#evaluation">Evaluation</a></li>
-          <li><a class="nav-link scrollto" href="#challenges">Challenges</a></li>
-          <li><a class="nav-link scrollto" href="#forward">Way Forward</a></li>
+          <li><a class="nav-link scrollto" href="#conclusion">Conclusion</a></li>
+          
           <!-- <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               <li><a href="#">Drop Down 1</a></li>
@@ -164,7 +165,7 @@
               </div>
               <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content" data-aos="fade-right" data-aos-delay="100">
                 <h3>Django Workflow</h3>
-                <p class="fst-italic">
+                <p >
                   We have developed a web application for our recommender system using the Django Framework with Python, and DynamoDB for the database. 
                   The landing page of our web application prompts users to log in and offers a sign-up function for new users.
                 </p>
@@ -237,6 +238,46 @@
     </section>
     <!-- End About Section -->
 
+        <!-- ======= Demo Section ======= -->
+        <section id="demo" class="about">
+          <div class="container" >
+            
+            <div class="row">
+             
+              <!-- <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content" > -->
+                <h3>Demo Flow Screenshots </h3>
+                
+                <h1> </h1>
+                <h5><a class="nav-link scrollto" href="https://youtu.be/zTHeR07Lezc">Youtube Video Link</a></li></h5>
+                <h1></h1>
+                <p>The application asks the user to login at the start. If the user is new, we ask the user to select favourite hashtags and this solves the cold start problem. In the demo we had selected 4 tags: 'dog', 'anime', 'friends', 'school'. Based on these tags we get the first feed after which we like memes related to cats. Thus we can see that in the next feed we are shown more cat memes. This signifies that our recommender is working dynamically to suggest relevant memes. </p>
+                <img src="assets/img/d1.png" class="img-fluid" alt="">
+                <!-- </div> -->
+                <h1> </h1>
+                <!-- <p>If the user is new, we ask the user to select favourite hashtags and this solves the cold start problem.</p> -->
+                <img src="assets/img/d2.png" class="img-fluid" alt="">
+                <h1> </h1>
+                <!-- <p>Ashutosh Chauhan</p> -->
+                <img src="assets/img/d3.png" class="img-fluid" alt="">
+                <h1> </h1>
+                <!-- <p>Ashutosh Chauhan</p> -->
+                <img src="assets/img/d4.png" class="img-fluid" alt="">
+                <h1> </h1>
+                <!-- <p>Ashutosh Chauhan</p> -->
+                <img src="assets/img/d5.png" class="img-fluid" alt="">
+                <h1> </h1>
+                <!-- <p>Ashutosh Chauhan</p> -->
+                <img src="assets/img/d6.png" class="img-fluid" alt="">
+                
+                
+
+    
+              <!-- </div> -->
+            </div>
+    
+          </div>
+        </section>
+        <!-- End About Section -->
 
 
         <!-- ======= Evaluation Section ======= -->
@@ -292,14 +333,16 @@
 
 
 
-            <!-- ======= Challenges Section ======= -->
-    <section id="challenges" class="about">
+            <!-- ======= Conclusion Section ======= -->
+    <section id="conclusion" class="about">
       <div class="container" >
 
         <div class="row">
           <!-- <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left" data-aos-delay="100">
             <img src="assets/img/architecture.png" class="img-fluid" alt="">
           </div> -->
+          <h2>Conclusion</h2>
+          <h3></h3>
           <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content" >
             <h3>Challenges</h3>
 
@@ -317,36 +360,32 @@
         </div>
 
       </div>
+      <div class="container" >
+    
+        <div class="row">
+          <!-- <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left" data-aos-delay="100">
+            <img src="assets/img/workflow.png" class="img-fluid" alt="">
+          </div> -->
+          <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content" >
+            <h3>Way Forward</h3>
+            <p class="fst-italic">
+              As the timeline of this project was limited, we can think of a few improvements that we can add to our application.
+            </p>
+            <ul>
+              <li><i class="ri-check-double-line"></i> <b>More Data</b> We look forward to using a larger dataset with more quality memes to improve our recommendations</li>
+              <li><i class="ri-check-double-line"></i> <b>Meme Text Extraction</b> With large and good-quality data we can implement OCR for meme text extraction and use meme text and tags to build meme embeddings</li>
+              <li><i class="ri-check-double-line"></i> <b>Meme Tag Generation</b> Sometimes memes are not tagged or captioned properly thus we can extract meme text, and meme content to generate meme tags to include such memes in our system. This would be possible using deep learning models to be trained on meme content to predict the tags.</li>
+            </ul>
+
+          </div>
+        </div>
+
+      </div>
     </section>
     <!-- End About Section -->
 
 
 
-        <!-- ======= Way Forward Section ======= -->
-        <section id="forward" class="about">
-          <div class="container" >
-    
-            <div class="row">
-              <!-- <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left" data-aos-delay="100">
-                <img src="assets/img/workflow.png" class="img-fluid" alt="">
-              </div> -->
-              <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content" >
-                <h3>Way Forward</h3>
-                <p class="fst-italic">
-                  As the timeline of this project was limited, we can think of a few improvements that we can add to our application.
-                </p>
-                <ul>
-                  <li><i class="ri-check-double-line"></i> <b>More Data</b> We look forward to using a larger dataset with more quality memes to improve our recommendations</li>
-                  <li><i class="ri-check-double-line"></i> <b>Meme Text Extraction</b> With large and good-quality data we can implement OCR for meme text extraction and use meme text and tags to build meme embeddings</li>
-                  <li><i class="ri-check-double-line"></i> <b>Meme Tag Generation</b> Sometimes memes are not tagged or captioned properly thus we can extract meme text, and meme content to generate meme tags to include such memes in our system. This would be possible using deep learning models to be trained on meme content to predict the tags.</li>
-                </ul>
-
-              </div>
-            </div>
-    
-          </div>
-        </section>
-        <!-- End About Section -->
 
 
 
